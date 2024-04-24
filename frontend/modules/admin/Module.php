@@ -2,6 +2,9 @@
 
 namespace app\modules\admin;
 
+use Yii;
+use yii\helpers\Url;
+
 /**
  * admin module definition class
  */
@@ -18,7 +21,6 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
-
         // custom initialization code goes here
     }
 }
