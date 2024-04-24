@@ -3,20 +3,20 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%galleries}}`.
+ * Handles the creation of table `{{%banners}}`.
  */
-class m240423_073546_create_galleries_table extends Migration
+class m240423_130836_create_banners_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('{{%galleries}}', [
+        $this->createTable('{{%banners}}', [
             'id' => $this->primaryKey(),
-            'type' => $this->integer()->notNull(),
-            'is_external' => $this->integer(),
-            'url' => $this->integer()->null(),
+            'title' => $this->string()->null(),
+            'subtitle' => $this->string()->null(),
+            'url' => $this->string()->null(),
             'path' => $this->string()->null(),
             'filename' => $this->string()->null(),
             'original_name' => $this->string()->null(),
@@ -31,6 +31,6 @@ class m240423_073546_create_galleries_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%galleries}}');
+        $this->dropTable('{{%banners}}');
     }
 }

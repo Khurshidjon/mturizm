@@ -75,7 +75,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = "template";
         return $this->render('index');
     }
 
