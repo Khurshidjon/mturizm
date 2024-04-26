@@ -163,8 +163,9 @@ AppAsset::register($this);
                                 <!--                                <img src="/template/images/logo-2.png" alt="" class="img-fluid">-->
                             </div>
                             <ul>
-                                <li><a href="javascript:void(0)">Bosh sahifa</a></li>
-                                <li><a href="destination.html">Lotlar</a></li>
+                                <li><a href="/">Bosh sahifa</a></li>
+                                <li><a href="/site/news">Yangiliklar</a></li>
+                                <li><a href="/site/lots">Lotlar</a></li>
                                 <li class="has-child-menu">
                                     <a href="javascript:void(0)">Galleriya</a>
                                     <i class="fl flaticon-plus">+</i>
@@ -173,7 +174,7 @@ AppAsset::register($this);
                                         <li><a href="/site/video-gallery" class="sub-item">Video galleriya</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Biz bilan aloqa </a></li>
+                                <li><a href="/site/contacts">Biz bilan aloqa </a></li>
                             </ul>
                             <div class="navbar-icons-2">
                                 <div class="searchbar-open">
