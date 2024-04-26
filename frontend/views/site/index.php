@@ -76,8 +76,8 @@ $this->title = 'Miroqi | Uzbekistan';
                     </div>
                 </div>
                 <div class="row">
-                    <?php foreach ($posts as $post): ?>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                    <?php foreach ($posts as $key => $post): ?>
+                        <div class="col-lg-4 col-md-6 col-sm-6  wow fadeInLeft animated" data-wow-duration="1500ms"  data-wow-delay="<?=$key+300?>ms">
                             <div class="blog-card">
                                 <div class="blog-img">
                                     <img src="<?= $post->image != null ? '/files/' . $post->image : '/template/images/blog/b-1.png' ?>"
@@ -385,52 +385,23 @@ $this->title = 'Miroqi | Uzbekistan';
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInLeft animated" data-wow-duration="1500ms"
-                 data-wow-delay="0ms">
-                <div class="blog-card">
-                    <div class="blog-img">
-                        <img src="/template/images/blog/b-1.png" alt="" class="img-fluid">
-                        <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>
-                    </div>
-                    <div class="blog-details">
-                        <a href="blog-details.html" class="blog-title">Donec egestas orci viverra
-                            fermentum risus.</a>
-                        <div class="blog-btn">
-                            <a href="blog-details.html" class="btn-common-sm">Batafsil ko'rish</a>
+            <?php foreach ($lots as $lot):?>
+                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInLeft animated" data-wow-duration="1500ms"
+                     data-wow-delay="0ms">
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="<?= $lot->image != null ? '/files/' . $lot->image : '/template/images/blog/b-1.png' ?>" alt="" class="img-fluid">
+                            <div class="blog-date"><i class="flaticon-calendar"></i> <?= date("d M, Y")?></div>
+                        </div>
+                        <div class="blog-details">
+                            <a href="#" class="blog-title"><?=$lot->title?></a>
+                            <div class="blog-btn">
+                                <a href="#" class="btn-common-sm">Batafsil ko'rish</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6  wow fadeInLeft animated" data-wow-duration="1500ms"
-                 data-wow-delay="300ms">
-                <div class="blog-card">
-                    <div class="blog-img">
-                        <img src="/template/images/blog/b-2.png" alt="" class="img-fluid">
-                        <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>
-                    </div>
-                    <div class="blog-details">
-                        <a href="blog-details.html" class="blog-title">Praesent ut mattis ante the Nullam lobortis. </a>
-                        <div class="blog-btn">
-                            <a href="blog-details.html" class="btn-common-sm">Batafsil ko'rish</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInLeft animated" data-wow-duration="1500ms"
-                 data-wow-delay="600ms">
-                <div class="blog-card">
-                    <div class="blog-img">
-                        <img src="/template/images/blog/b-3.png" alt="" class="img-fluid">
-                        <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>
-                    </div>
-                    <div class="blog-details">
-                        <a href="blog-details.html" class="blog-title">Maecenas vehicula risus non neque tincidunt.</a>
-                        <div class="blog-btn">
-                            <a href="blog-details.html" class="btn-common-sm">Batafsil ko'rish</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach;?>
         </div>
     </div>
 </div>

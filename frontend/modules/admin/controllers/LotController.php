@@ -7,6 +7,7 @@ use app\modules\admin\models\LotSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * LotController implements the CRUD actions for Lot model.
@@ -70,7 +71,18 @@ class LotController extends Controller
         $model = new Lot();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $model->file = UploadedFile::getInstance($model, 'file');
+                $base_directory = __DIR__ . '../../../../../frontend/web/files';
+                $new_directory = $base_directory . '/' . 'lots';
+                $inside_directory = '/lots';
+                if ($model->file != null) {
+                    $filename = substr(sha1($model->file->baseName), 0, 20) . date("d-m-Y-H-i") . '.' . $model->file->extension;
+                    $file_dir = $new_directory . '/' . $filename;
+                    $model->file->saveAs($file_dir);
+                    $model->image = $inside_directory . '/' . $filename;
+                }
+                $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
