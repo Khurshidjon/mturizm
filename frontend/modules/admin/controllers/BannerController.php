@@ -77,10 +77,7 @@ class BannerController extends Controller
                 $base_directory = __DIR__ . '../../../../../frontend/web/files';
                 $new_directory = $base_directory . '/' . 'banner';
                 $inside_directory = '/banner';
-                if ($model != null) {
-//                    if (!file_exists($new_directory)) {
-//                        mkdir($new_directory, 0777, true);
-//                    }
+                if ($model->image != null) {
                     $filename = substr(sha1($model->image->baseName), 0, 20) . date("d-m-Y-H-i") . '.' . $model->image->extension;
                     $file_dir = $new_directory . '/' . $filename;
                     $original_filename = $model->image->name;
@@ -89,6 +86,7 @@ class BannerController extends Controller
                     $model->original_name = $original_filename;
                     $model->filename = $filename;
                 }
+
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }

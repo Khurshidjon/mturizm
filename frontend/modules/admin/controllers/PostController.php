@@ -76,7 +76,7 @@ class PostController extends Controller
                 $base_directory = __DIR__ . '../../../../../frontend/web/files';
                 $new_directory = $base_directory . '/' . 'posts';
                 $inside_directory = '/posts';
-                if ($model != null) {
+                if ($model->postImagel != null) {
 //                    if (!file_exists($new_directory)) {
 //                        mkdir($new_directory, 0777, true);
 //                    }
