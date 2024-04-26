@@ -17,6 +17,7 @@ class m240423_072901_create_posts_table extends Migration
             'title' => $this->string(),
             'image' => $this->text()->null(),
             'content' => $this->text()->null(),
+            'user_id' => $this->integer(),
             'status' => $this->integer()->defaultValue(1),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),

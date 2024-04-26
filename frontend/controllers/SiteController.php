@@ -2,6 +2,8 @@
 
 namespace frontend\controllers;
 
+use common\models\Banner;
+use common\models\Post;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -65,6 +67,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $banners = Banner::find()->where(['status' => 1])->all();
+        $posts = Post::find()->where(['status' => 1])->all();
+        return $this->render('index', [
+            'banners' => $banners,
+            'posts' => $posts,
+        ]);
     }
 }

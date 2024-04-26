@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+
 /**
  * Site controller
  */
@@ -18,7 +19,14 @@ class AuthController extends Controller
 
     public function beforeAction($action)
     {
-        $this->layout = '@app/views/layouts/auth';
+        if (!Yii::$app->user->isGuest) {
+            $this->layout = '@app/views/layouts/admin';
+        } else {
+            $this->layout = '@app/views/layouts/auth';
+        }
+        if ($action->id == 'error') {
+            $this->layout = 'auth';
+        }
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }

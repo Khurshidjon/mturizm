@@ -65,65 +65,52 @@ AppAssetAdmin::register($this);
                         </a>
                     </li>
                     <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Ахборот тизимлари</span>
+                        <span class="menu-header-text">Sayt kontenti</span>
                     </li>
-                    <li class="menu-item <?= $route == 'system' ? 'active' : ''; ?>">
-                        <a href="<?= Url::toRoute(['/admin/system']) ?>" class="menu-link">
+                    <li class="menu-item <?= $route == 'post' ? 'active' : ''; ?>">
+                        <a href="<?= Url::toRoute(['/admin/post']) ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-list-ul"></i>
+                            <div data-i18n="Boxicons">Yangiliklar</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?= $route == 'lot' ? 'active' : ''; ?>">
+                        <a href="<?= Url::toRoute(['/admin/lot']) ?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-code-alt"></i>
-                            <div data-i18n="Boxicons">Ахборот тизимлари</div>
+                            <div data-i18n="Boxicons">Lotlar</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?= $route == 'banner' ? 'active' : ''; ?>">
+                        <a href="<?= Url::toRoute(['/admin/banner']) ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-image"></i>
+                            <div data-i18n="Boxicons">Bannerlar</div>
                         </a>
                     </li>
 
-                    <!-- Components -->
-                    <li class="menu-header small text-uppercase"><span
-                                class="menu-header-text">Сервер қурилмалари</span></li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-server"></i>
-                            <div data-i18n="Boxicons">Сервер қурилмалари</div>
-                        </a>
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Sozlamalar</span>
                     </li>
-
-                    <!-- Forms & Tables -->
-                    <li class="menu-header small text-uppercase"><span
-                                class="menu-header-text">Норматив ҳужжатлар</span></li>
-                    <!-- Tables -->
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-briefcase"></i>
-                            <div data-i18n="Tables">Норматив ҳужжатлар</div>
+                    <li class="menu-item <?= in_array($route, ['expert', 'organization', 'user']) ? 'active open' : ''; ?> ">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-cog"></i>
+                            <div data-i18n="User interface">Sozlamalar paneli</div>
                         </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item <?= $route == 'expert' ? 'active' : '' ?>">
+                                <a href="<?= Url::toRoute(['/admin/expert']) ?>" class="menu-link">
+                                    <div data-i18n="Accordion">Экспертлар</div>
+                                </a>
+                            </li>
+                            <li class="menu-item <?= $route == 'organization' ? 'active' : '' ?>">
+                                <a href="<?= Url::toRoute(['/admin/organization']) ?>" class="menu-link">
+                                    <div data-i18n="Accordion">Ташкилотлар</div>
+                                </a>
+                            </li>
+                            <li class="menu-item <?= $route == 'user' ? 'active' : '' ?>">
+                                <a href="<?= Url::toRoute(['/admin/user']) ?>" class="menu-link">
+                                    <div data-i18n="Accordion">Фойдаланувчилар</div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-<!--                    --><?php
-//                    $isAllow = Yii::$app->user->identity->role->title;
-//                    ?>
-<!--                    --><?php //if ($isAllow == 'Superadmin'): ?>
-                        <li class="menu-header small text-uppercase"><span class="menu-header-text">Созламалар</span>
-                        </li>
-                        <li class="menu-item <?= in_array($route, ['expert', 'organization', 'user']) ? 'active open' : ''; ?> ">
-                            <a href="javascript:void(0)" class="menu-link menu-toggle">
-                                <i class="menu-icon tf-icons bx bx-cog"></i>
-                                <div data-i18n="User interface">Созламалар панели</div>
-                            </a>
-                            <ul class="menu-sub">
-                                <li class="menu-item <?= $route == 'expert' ? 'active' : '' ?>">
-                                    <a href="<?= Url::toRoute(['/admin/expert']) ?>" class="menu-link">
-                                        <div data-i18n="Accordion">Экспертлар</div>
-                                    </a>
-                                </li>
-                                <li class="menu-item <?= $route == 'organization' ? 'active' : '' ?>">
-                                    <a href="<?= Url::toRoute(['/admin/organization']) ?>" class="menu-link">
-                                        <div data-i18n="Accordion">Ташкилотлар</div>
-                                    </a>
-                                </li>
-                                <li class="menu-item <?= $route == 'user' ? 'active' : '' ?>">
-                                    <a href="<?= Url::toRoute(['/admin/user']) ?>" class="menu-link">
-                                        <div data-i18n="Accordion">Фойдаланувчилар</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-<!--                    --><?php //endif; ?>
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -158,7 +145,7 @@ AppAssetAdmin::register($this);
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- Place this tag where you want the button to render. -->
                             <li class="nav-item lh-1 me-3">
-<!--                                --><?php //= Yii::$app->user->identity->full_name ?>
+                                <?= Yii::$app->user->identity->username ?>
                             </li>
 
                             <!-- User -->
@@ -171,7 +158,8 @@ AppAssetAdmin::register($this);
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
-                                        <a class="dropdown-item" href="<?= Url::toRoute(['/admin/default/profile', 'id' => 1])?>">
+                                        <a class="dropdown-item"
+                                           href="<?= Url::toRoute(['/admin/default/profile', 'id' => 1]) ?>">
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
@@ -179,9 +167,9 @@ AppAssetAdmin::register($this);
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">///</span>
-                                                    <small class="text-muted">/////</small>
-                                                </div>s
+                                                    <span class="fw-semibold d-block"><?= Yii::$app->user->identity->username ?></span>
+                                                    <small class="text-muted">online</small>
+                                                </div>
                                             </div>
                                         </a>
                                     </li>
@@ -209,7 +197,7 @@ AppAssetAdmin::register($this);
                 <!-- / Navbar -->
 
                 <!-- Content wrapper -->
-                <div class="content-wrapper">
+                <div class="content-wrapper container-fluid">
                     <!-- Content -->
                     <?= $content ?>
                     <!-- / Content -->
