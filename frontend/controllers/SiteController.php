@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\Banner;
+use common\models\Gallery;
 use common\models\Post;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -72,6 +73,23 @@ class SiteController extends Controller
         return $this->render('index', [
             'banners' => $banners,
             'posts' => $posts,
+        ]);
+    }
+
+    public function actionPhotoGallery()
+    {
+        $photos = Gallery::find()->where(['type' => Gallery::TYPE_1])->all();
+
+        return $this->render('photo-gallery', [
+            'photos' => $photos,
+        ]);
+    }
+    public function actionVideoGallery()
+    {
+        $videos = Gallery::find()->where(['type' => Gallery::TYPE_2])->all();
+
+        return $this->render('video-gallery', [
+            'videos' => $videos,
         ]);
     }
 }

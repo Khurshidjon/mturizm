@@ -85,6 +85,12 @@ AppAssetAdmin::register($this);
                             <div data-i18n="Boxicons">Bannerlar</div>
                         </a>
                     </li>
+                    <li class="menu-item <?= $route == 'gallery' ? 'active' : ''; ?>">
+                        <a href="<?= Url::toRoute(['/admin/gallery']) ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-image"></i>
+                            <div data-i18n="Boxicons">Galleriya</div>
+                        </a>
+                    </li>
 
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Sozlamalar</span>
                     </li>
@@ -94,16 +100,6 @@ AppAssetAdmin::register($this);
                             <div data-i18n="User interface">Sozlamalar paneli</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item <?= $route == 'expert' ? 'active' : '' ?>">
-                                <a href="<?= Url::toRoute(['/admin/expert']) ?>" class="menu-link">
-                                    <div data-i18n="Accordion">Экспертлар</div>
-                                </a>
-                            </li>
-                            <li class="menu-item <?= $route == 'organization' ? 'active' : '' ?>">
-                                <a href="<?= Url::toRoute(['/admin/organization']) ?>" class="menu-link">
-                                    <div data-i18n="Accordion">Ташкилотлар</div>
-                                </a>
-                            </li>
                             <li class="menu-item <?= $route == 'user' ? 'active' : '' ?>">
                                 <a href="<?= Url::toRoute(['/admin/user']) ?>" class="menu-link">
                                     <div data-i18n="Accordion">Фойдаланувчилар</div>

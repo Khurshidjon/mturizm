@@ -16,7 +16,7 @@ class m240423_073546_create_galleries_table extends Migration
             'id' => $this->primaryKey(),
             'type' => $this->integer()->notNull(),
             'is_external' => $this->integer(),
-            'url' => $this->integer()->null(),
+            'url' => $this->text()->null(),
             'path' => $this->string()->null(),
             'filename' => $this->string()->null(),
             'original_name' => $this->string()->null(),

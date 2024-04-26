@@ -169,8 +169,8 @@ AppAsset::register($this);
                                     <a href="javascript:void(0)">Galleriya</a>
                                     <i class="fl flaticon-plus">+</i>
                                     <ul class="sub-menu">
-                                        <li><a href="gallary.html" class="sub-item">Foto galleriya</a></li>
-                                        <li><a href="gallary.html" class="sub-item">Video galleriya</a></li>
+                                        <li><a href="/site/photo-gallery" class="sub-item">Foto galleriya</a></li>
+                                        <li><a href="/site/video-gallery" class="sub-item">Video galleriya</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="contact.html">Biz bilan aloqa </a></li>
@@ -262,59 +262,60 @@ AppAsset::register($this);
                                 <div class="contact-box">
                                     <span><i class="bx bx-phone"></i></span>
                                     <div>
-                                        <a href="tel:+01852-1265122">+01852-1265122</a>
-                                        <a href="tel:+01852-1265122">+01852-1265122</a>
+                                        <a href="tel:+998990005795">+998(99)-000 57-95</a>
+<!--                                        <a href="tel:+01852-1265122">+01852-1265122</a>-->
                                     </div>
                                 </div>
                                 <div class="contact-box">
                                     <span><i class="bx bx-mail-send"></i></span>
                                     <div>
-                                        <a href="mailto:info@example.com">info@example.com</a>
-                                        <a href="mailto:support@example.com">support@example.com</a>
+                                        <a href="mailto:info@example.com">info@mturizm.uz</a>
+                                        <a href="mailto:support@example.com">info@shakhrisabz.uz</a>
                                     </div>
                                 </div>
                                 <div class="contact-box">
                                     <span><i class="bx bx-location-plus"></i></span>
                                     <div>
-                                        <a href="#">2752 Willison Street <br>
-                                            Eagan, United State</a>
+                                        <a href="#">Miraki dam olish maskani
+                                            <br>
+                                            Shaxrisabz, Qashqadaryo</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-5">
-                            <div class="footer-links">
-                                <h5 class="widget-title">support</h5>
-                                <div class="category-list">
-                                    <ul>
-                                        <li><a href="contact.html">Contact us</a></li>
-                                        <li><a href="about.html">About us</a></li>
-                                        <li><a href="#">Services</a></li>
-                                        <li><a href="blog.html">our Blogs</a></li>
-                                        <li><a href="#">terms and conditions</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="footer-links payment-links">
-                                <h5 class="widget-title">We Accepts:</h5>
-                                <div class="payment-cards">
-                                    <img src="/template/images/payment/payment-card-2.png" alt="" class="img-fluid">
-                                    <img src="/template/images/payment/payment-card-1.png" alt="" class="img-fluid">
-                                    <img src="/template/images/payment/payment-card-3.png" alt="" class="img-fluid">
-                                    <img src="/template/images/payment/payment-card-4.png" alt="" class="img-fluid">
-                                    <img src="/template/images/payment/payment-card-5.png" alt="" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
+<!--                        <div class="col-lg-3 col-md-3 col-sm-5">-->
+<!--                            <div class="footer-links">-->
+<!--                                <h5 class="widget-title">support</h5>-->
+<!--                                <div class="category-list">-->
+<!--                                    <ul>-->
+<!--                                        <li><a href="contact.html">Contact us</a></li>-->
+<!--                                        <li><a href="about.html">About us</a></li>-->
+<!--                                        <li><a href="#">Services</a></li>-->
+<!--                                        <li><a href="blog.html">our Blogs</a></li>-->
+<!--                                        <li><a href="#">terms and conditions</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-4 col-md-4">-->
+<!--                            <div class="footer-links payment-links">-->
+<!--                                <h5 class="widget-title">We Accepts:</h5>-->
+<!--                                <div class="payment-cards">-->
+<!--                                    <img src="/template/images/payment/payment-card-2.png" alt="" class="img-fluid">-->
+<!--                                    <img src="/template/images/payment/payment-card-1.png" alt="" class="img-fluid">-->
+<!--                                    <img src="/template/images/payment/payment-card-3.png" alt="" class="img-fluid">-->
+<!--                                    <img src="/template/images/payment/payment-card-4.png" alt="" class="img-fluid">-->
+<!--                                    <img src="/template/images/payment/payment-card-5.png" alt="" class="img-fluid">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyrigth-area">
-                        <p>Copyright 2021 <a href="#">TourX</a> | Design By <a href="#">Egens Lab</a></p>
+                        <p>Copyright <?= date("Y");?> <a href="#">MTurizm</a> | Design By <a href="#">Anonymous developer</a></p>
                     </div>
                 </div>
             </div>

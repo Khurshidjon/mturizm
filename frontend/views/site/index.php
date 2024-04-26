@@ -101,7 +101,7 @@ $this->title = 'Miroqi | Uzbekistan';
 <!-- ===============  Package  area end =============== -->
 
 <!-- =============== Destinations area start =============== -->
-<div class="destinations-area pt-105">
+<!--<div class="destinations-area pt-105">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -283,7 +283,7 @@ $this->title = 'Miroqi | Uzbekistan';
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!-- =============== Destinations area end =============== -->
 
 <!-- =============== achievement area start =============== -->
@@ -379,8 +379,8 @@ $this->title = 'Miroqi | Uzbekistan';
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="section-head pb-30">
-                    <h5>Latest Blog</h5>
-                    <h2>Stay Updated And new post our Blog</h2>
+                    <h5>Lotlar haqida ma'lumot</h5>
+                    <h2>Tender o'tkazilayotgan lotlar</h2>
                 </div>
             </div>
         </div>
@@ -393,14 +393,10 @@ $this->title = 'Miroqi | Uzbekistan';
                         <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>
                     </div>
                     <div class="blog-details">
-                        <div class="blog-info">
-                            <a class="blog-writer" href="#"><i class="flaticon-user"></i>Dina Jems</a>
-                            <a class="blog-comment" href="#"><i class="flaticon-comment"></i><span>(3)</span>Comment</a>
-                        </div>
                         <a href="blog-details.html" class="blog-title">Donec egestas orci viverra
                             fermentum risus.</a>
                         <div class="blog-btn">
-                            <a href="blog-details.html" class="btn-common-sm">Read More</a>
+                            <a href="blog-details.html" class="btn-common-sm">Batafsil ko'rish</a>
                         </div>
                     </div>
                 </div>
@@ -413,13 +409,9 @@ $this->title = 'Miroqi | Uzbekistan';
                         <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>
                     </div>
                     <div class="blog-details">
-                        <div class="blog-info">
-                            <a class="blog-writer" href="#"><i class="flaticon-user"></i>Dina Jems</a>
-                            <a class="blog-comment" href="#"><i class="flaticon-comment"></i><span>(3)</span>Comment</a>
-                        </div>
                         <a href="blog-details.html" class="blog-title">Praesent ut mattis ante the Nullam lobortis. </a>
                         <div class="blog-btn">
-                            <a href="blog-details.html" class="btn-common-sm">Read More</a>
+                            <a href="blog-details.html" class="btn-common-sm">Batafsil ko'rish</a>
                         </div>
                     </div>
                 </div>
@@ -432,13 +424,9 @@ $this->title = 'Miroqi | Uzbekistan';
                         <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>
                     </div>
                     <div class="blog-details">
-                        <div class="blog-info">
-                            <a class="blog-writer" href="#"><i class="flaticon-user"></i>Dina Jems</a>
-                            <a class="blog-comment" href="#"><i class="flaticon-comment"></i><span>(3)</span>Comment</a>
-                        </div>
                         <a href="blog-details.html" class="blog-title">Maecenas vehicula risus non neque tincidunt.</a>
                         <div class="blog-btn">
-                            <a href="blog-details.html" class="btn-common-sm">Read More</a>
+                            <a href="blog-details.html" class="btn-common-sm">Batafsil ko'rish</a>
                         </div>
                     </div>
                 </div>
@@ -455,14 +443,12 @@ $this->title = 'Miroqi | Uzbekistan';
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="newsletter-wrapper">
-                    <h2>Subscribe To Our Newsletter
-                        For Latest Update</h2>
-
+                    <h2>So'nggi yangiliklarga obuna bo'ling</h2>
                     <form>
                         <div class="input-group newsletter-input">
-                            <input type="text" class="form-control" placeholder="Enter Your Email"
+                            <input type="text" class="form-control" placeholder="Elektron pochta"
                                    aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subscribe
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Obuna
                             </button>
                         </div>
                     </form>

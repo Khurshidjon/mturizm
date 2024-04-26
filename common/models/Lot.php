@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "lots".
@@ -17,6 +18,8 @@ use Yii;
  */
 class Lot extends \yii\db\ActiveRecord
 {
+
+    public $file;
     /**
      * {@inheritdoc}
      */
@@ -34,8 +37,17 @@ class Lot extends \yii\db\ActiveRecord
             [['content'], 'string'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
+            [['file'], 'file', 'skipOnEmpty' => true, 'maxSize' => 10485760],
         ];
     }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+        ];
+    }
+
 
     /**
      * {@inheritdoc}

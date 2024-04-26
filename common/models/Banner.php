@@ -2,6 +2,8 @@
 
 namespace common\models;
 
+use yii\behaviors\TimestampBehavior;
+
 /**
  * This is the model class for table "banners".
  *
@@ -25,6 +27,14 @@ class Banner extends \yii\db\ActiveRecord
     {
         return 'banners';
     }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+        ];
+    }
+
 
     public $image;
     /**
