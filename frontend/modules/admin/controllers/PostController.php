@@ -77,7 +77,7 @@ class PostController extends Controller
                 $new_directory = $base_directory . '/' . 'posts';
                 $inside_directory = '/posts';
                 if ($model != null) {
-                    if (!is_dir($new_directory)) {
+                    if (!file_exists($new_directory)) {
                         mkdir($new_directory, 0777, true);
                     }
                     $filename = substr(sha1($model->postImage->baseName), 0, 20) . date("d-m-Y-H-i") . '.' . $model->postImage->extension;
