@@ -237,8 +237,9 @@ $socials = SocialMessenger::find()->all();
                         <div class="footer-logo">
                             <img src="/template/images/logo/logo-no-back.png" width="50%" alt="" class="img-fluid">
                         </div>
+                        <p></p>
                         <div class="footer-social-icons">
-                            <h5>Follow Us:</h5>
+                            <h5>Bizni kuzating:</h5>
                             <ul>
                                 <?php foreach ($socials as $social): ?>
                                     <li><a target="_blank" href="<?= $social->link ?>"><i
@@ -249,15 +250,15 @@ $socials = SocialMessenger::find()->all();
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="achievement-area">
-                        <div style="position:relative;overflow:hidden;">
+                    <div class="achievement-area" style="border-top-right-radius: 10px; border-top-left-radius: 10px">
+                        <div style="position:relative;overflow:hidden; border-top-right-radius: 10px; border-top-left-radius: 10px">
                             <a href="https://yandex.uz/maps/org/236557694293/?utm_medium=mapframe&utm_source=maps"
                                style="color:#eee;font-size:22px;position:absolute;top:0px;">Санаторий Мираки</a>
                             <a href="https://yandex.uz/maps/105807/qashqadaryo-province/category/sanatorium/184106404/?utm_medium=mapframe&utm_source=maps"
                                style="color:#eee;font-size:12px;position:absolute;top:14px;">Санаторий в
                                 Кашкадарьинской области</a>
                             <iframe src="https://yandex.uz/map-widget/v1/?ll=67.111664%2C39.039630&mode=search&oid=236557694293&ol=biz&z=13.26"
-                                    width="100%" height="570" frameborder="0" allowfullscreen="true"
+                                    width="100%" height="280" frameborder="0" allowfullscreen="true"
                                     style="position:relative;">
                             </iframe>
                         </div>

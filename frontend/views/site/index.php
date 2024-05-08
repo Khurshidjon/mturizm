@@ -72,7 +72,7 @@ $this->title = 'Miroqi | Uzbekistan';
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="section-head pb-45">
                             <h5>Turizm haqida yangiliklar</h5>
-                            <h2>Miroqi dam olish maskani haqidagi so'nggi yangiliklar</h2>
+                            <h2>Shahrisabz turizm markazi haqidagi so'nggi yangiliklar</h2>
                         </div>
                     </div>
                 </div>
