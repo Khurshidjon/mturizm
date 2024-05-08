@@ -237,8 +237,6 @@ $socials = SocialMessenger::find()->all();
                         <div class="footer-logo">
                             <img src="/template/images/logo/logo-no-back.png" width="50%" alt="" class="img-fluid">
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid maxime aut ut voluptate
-                            dolorum nisi ducimus ratione</p>
                         <div class="footer-social-icons">
                             <h5>Follow Us:</h5>
                             <ul>
