@@ -1,16 +1,15 @@
 <?php
 
 /** @var \yii\web\View $this */
+
 /** @var string $content */
 
-use common\widgets\Alert;
 use frontend\assets\AppAsset;
-use yii\bootstrap5\Breadcrumbs;
-use yii\bootstrap5\Html;
-use yii\bootstrap5\Nav;
-use yii\bootstrap5\NavBar;
+use common\models\SocialMessenger;
 
 AppAsset::register($this);
+
+$socials = SocialMessenger::find()->all();
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -19,7 +18,8 @@ AppAsset::register($this);
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <?php $this->registerCsrfMetaTags() ?>
-        <title><?= Html::encode($this->title) ?></title>
+        <title>“Shahrisabz” turistik markazi</title>
+        <!--        <title>--><?php //= Html::encode($this->title) ?><!--</title>-->
         <?php $this->head() ?>
     </head>
     <body>
@@ -68,18 +68,12 @@ AppAsset::register($this);
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-6">
                     <div class="topbar-social">
                         <ul>
-                            <li>
-                                <a href="#"><i class='bx bxl-instagram'></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class='bx bxl-facebook'></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class='bx bxl-twitter'></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class='bx bxl-whatsapp'></i></a>
-                            </li>
+                            <?php foreach ($socials as $social): ?>
+                                <li>
+                                    <a target="_blank" href="<?= $social->link ?>"><i
+                                                class='bx bxl-<?= $social->title ?>'></i></a>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
@@ -111,7 +105,7 @@ AppAsset::register($this);
                         <div class="navbar-wrap">
                             <div class="logo d-flex justify-content-between">
                                 <a href="/" class="navbar-brand">
-                                    <img src="/template/images/logo.png" alt="">
+                                    <img width="100%" src="/template/images/logo/logo-no-back.png" alt="">
                                 </a>
                             </div>
                             <div class="navbar-icons">
@@ -164,8 +158,8 @@ AppAsset::register($this);
                             </div>
                             <ul>
                                 <li><a href="/">Bosh sahifa</a></li>
-                                <li><a href="/site/news">Yangiliklar</a></li>
-                                <li><a href="/site/lots">Lotlar</a></li>
+                                <li><a href="/site/posts">Yangiliklar</a></li>
+                                <!--                                <li><a href="/site/lots">Lotlar</a></li>-->
                                 <li class="has-child-menu">
                                     <a href="javascript:void(0)">Galleriya</a>
                                     <i class="fl flaticon-plus">+</i>
@@ -174,7 +168,7 @@ AppAsset::register($this);
                                         <li><a href="/site/video-gallery" class="sub-item">Video galleriya</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/site/contacts">Biz bilan aloqa </a></li>
+                                <li><a href="#footer">Biz bilan aloqa </a></li>
                             </ul>
                             <div class="navbar-icons-2">
                                 <div class="searchbar-open">
@@ -206,8 +200,10 @@ AppAsset::register($this);
                                 <!--                            </div>-->
                                 <div class="sidebar-contact">
                                     <ul>
-                                        <li class="sidebar-single-contact"><i class='bx bxs-phone'></i> <a href="tel:+998990005795">+998 (99)-000-5795</a></li>
-                                        <li class="sidebar-single-contact"><i class='bx bxs-envelope'></i><a href="mailto:info@mturizm.uz">info@mturizm.uz</a></li>
+                                        <li class="sidebar-single-contact"><i class='bx bxs-phone'></i> <a
+                                                    href="tel:+998990005795">+998 (99)-000-5795</a></li>
+                                        <li class="sidebar-single-contact"><i class='bx bxs-envelope'></i><a
+                                                    href="mailto:info@mturizm.uz">info@mturizm.uz</a></li>
                                     </ul>
                                 </div>
                         </nav>
@@ -233,90 +229,47 @@ AppAsset::register($this);
     <?= $content ?>
 
     <!-- ==============  Footer area start================= -->
-    <div class="footer-area">
+    <div class="footer-area" id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-md-6">
                     <div class="footer-info">
                         <div class="footer-logo">
-                            <img src="/template/images/logo-2.png" alt="" class="img-fluid">
+                            <img src="/template/images/logo/logo-no-back.png" width="50%" alt="" class="img-fluid">
                         </div>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid maxime aut ut voluptate
                             dolorum nisi ducimus ratione</p>
                         <div class="footer-social-icons">
                             <h5>Follow Us:</h5>
                             <ul>
-                                <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
-                                <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
-                                <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
-                                <li><a href="#"><i class='bx bxl-dribbble'></i></a></li>
+                                <?php foreach ($socials as $social): ?>
+                                    <li><a target="_blank" href="<?= $social->link ?>"><i
+                                                    class='bx bxl-<?= $social->title ?>'></i></a></li>
+                                <?php endforeach ?>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-12">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-7">
-                            <div class="footer-links">
-                                <h5 class="widget-title">Contact us</h5>
-
-                                <div class="contact-box">
-                                    <span><i class="bx bx-phone"></i></span>
-                                    <div>
-                                        <a href="tel:+998990005795">+998(99)-000 57-95</a>
-<!--                                        <a href="tel:+01852-1265122">+01852-1265122</a>-->
-                                    </div>
-                                </div>
-                                <div class="contact-box">
-                                    <span><i class="bx bx-mail-send"></i></span>
-                                    <div>
-                                        <a href="mailto:info@example.com">info@mturizm.uz</a>
-                                        <a href="mailto:support@example.com">info@shakhrisabz.uz</a>
-                                    </div>
-                                </div>
-                                <div class="contact-box">
-                                    <span><i class="bx bx-location-plus"></i></span>
-                                    <div>
-                                        <a href="#">Miraki dam olish maskani
-                                            <br>
-                                            Shaxrisabz, Qashqadaryo</a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-md-6">
+                    <div class="achievement-area">
+                        <div style="position:relative;overflow:hidden;">
+                            <a href="https://yandex.uz/maps/org/236557694293/?utm_medium=mapframe&utm_source=maps"
+                               style="color:#eee;font-size:22px;position:absolute;top:0px;">Санаторий Мираки</a>
+                            <a href="https://yandex.uz/maps/105807/qashqadaryo-province/category/sanatorium/184106404/?utm_medium=mapframe&utm_source=maps"
+                               style="color:#eee;font-size:12px;position:absolute;top:14px;">Санаторий в
+                                Кашкадарьинской области</a>
+                            <iframe src="https://yandex.uz/map-widget/v1/?ll=67.111664%2C39.039630&mode=search&oid=236557694293&ol=biz&z=13.26"
+                                    width="100%" height="570" frameborder="0" allowfullscreen="true"
+                                    style="position:relative;">
+                            </iframe>
                         </div>
-<!--                        <div class="col-lg-3 col-md-3 col-sm-5">-->
-<!--                            <div class="footer-links">-->
-<!--                                <h5 class="widget-title">support</h5>-->
-<!--                                <div class="category-list">-->
-<!--                                    <ul>-->
-<!--                                        <li><a href="contact.html">Contact us</a></li>-->
-<!--                                        <li><a href="about.html">About us</a></li>-->
-<!--                                        <li><a href="#">Services</a></li>-->
-<!--                                        <li><a href="blog.html">our Blogs</a></li>-->
-<!--                                        <li><a href="#">terms and conditions</a></li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-lg-4 col-md-4">-->
-<!--                            <div class="footer-links payment-links">-->
-<!--                                <h5 class="widget-title">We Accepts:</h5>-->
-<!--                                <div class="payment-cards">-->
-<!--                                    <img src="/template/images/payment/payment-card-2.png" alt="" class="img-fluid">-->
-<!--                                    <img src="/template/images/payment/payment-card-1.png" alt="" class="img-fluid">-->
-<!--                                    <img src="/template/images/payment/payment-card-3.png" alt="" class="img-fluid">-->
-<!--                                    <img src="/template/images/payment/payment-card-4.png" alt="" class="img-fluid">-->
-<!--                                    <img src="/template/images/payment/payment-card-5.png" alt="" class="img-fluid">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyrigth-area">
-                        <p>Copyright <?= date("Y");?> <a href="#">MTurizm</a> | Design By <a href="#">Anonymous developer</a></p>
+                        <p>Copyright <?= date("Y"); ?> <a href="#">MTurizm</a></p>
                     </div>
                 </div>
             </div>
@@ -328,7 +281,6 @@ AppAsset::register($this);
 
     <?php $this->endBody() ?>
     <script>
-        //Type js
         var element = $(".element");
         $(function () {
             element.typed({
@@ -337,7 +289,6 @@ AppAsset::register($this);
                 loop: true,
             });
         });
-
     </script>
     </body>
     </html>

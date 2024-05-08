@@ -910,7 +910,7 @@ a {
   left: 0;
   width: 15px;
   height: 15px;
-  background: #FF7F47;
+  background: #173b02;
   border-radius: 50%;
   -webkit-transform: scale(0);
           transform: scale(0);
@@ -938,7 +938,7 @@ a {
   position: absolute;
   top: 80px;
   left: 85px;
-  color: #FF7F47;
+  color: #173b02;
   font-size: 60px;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);

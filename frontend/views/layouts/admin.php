@@ -59,7 +59,7 @@ AppAssetAdmin::register($this);
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item <?= $route == 'default' ? 'active' : ''; ?>">
-                        <a href="/" class="menu-link">
+                        <a href="/" class="menu-link" target="_blank">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
@@ -89,6 +89,12 @@ AppAssetAdmin::register($this);
                         <a href="<?= Url::toRoute(['/admin/gallery']) ?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-image"></i>
                             <div data-i18n="Boxicons">Galleriya</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?= $route == 'social-messenger' ? 'active' : ''; ?>">
+                        <a href="<?= Url::toRoute(['/admin/social-messenger']) ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxl-telegram"></i>
+                            <div data-i18n="Boxicons">Ijtimoiy tarmoqlar</div>
                         </a>
                     </li>
 

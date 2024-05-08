@@ -79,6 +79,11 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionContacts()
+    {
+        return $this->render('contacts');
+    }
+
     public function actionPhotoGallery()
     {
         $photos = Gallery::find()->where(['type' => Gallery::TYPE_1])->all();
@@ -93,6 +98,34 @@ class SiteController extends Controller
 
         return $this->render('video-gallery', [
             'videos' => $videos,
+        ]);
+    }
+    public function actionPosts()
+    {
+        $posts = Post::find()->where('status = 1')->all();
+        return $this->render('posts/index', [
+            'posts' => $posts
+        ]);
+    }
+    public function actionLots()
+    {
+        $lots = Lot::find()->where('status = 1')->all();
+        return $this->render('lots/index', [
+            'lots' => $lots
+        ]);
+    }
+    public function actionPostDetails($id)
+    {
+        $post = Post::find()->where('status = 1')->andWhere(['id' => $id])->one();
+        return $this->render('posts/details', [
+            'post' => $post
+        ]);
+    }
+    public function actionLotDetails($id)
+    {
+        $lot = Lot::find()->where('status = 1')->andWhere(['id' => $id])->one();
+        return $this->render('lots/details', [
+            'lot' => $lot
         ]);
     }
 }

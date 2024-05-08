@@ -3,6 +3,7 @@
 /** @var yii\web\View $this */
 /** @var \common\models\Banner $banners */
 /** @var \common\models\Post $posts */
+/** @var \common\models\Lot $lots */
 
 $this->title = 'Miroqi | Uzbekistan';
 ?>
@@ -25,45 +26,45 @@ $this->title = 'Miroqi | Uzbekistan';
     </div>
 </div>
 
-<div class="find-form">
-    <div class="container">
-        <form class="findfrom-wrapper">
-            <div class="row">
-                <div class="col-lg-3">
-                    <input type="text" name="whereto" placeholder="Qayerga...">
-                </div>
-                <div class="col-lg-3">
-                    <div class="calendar-input">
-                        <input type="text" name="check-in" class="input-field check-in" placeholder="kk-oo-yy">
-                        <i class="flaticon-calendar"></i>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="custom-select">
-                        <select>
-                            <option value="0">Sayohat Turi</option>
-                            <option value="1">City Tours</option>
-                            <option value="2">Vacation Tours</option>
-                            <option value="3">Couple Tours</option>
-                            <option value="4">Adventure Tours</option>
-                            <option value="5">Group Tours</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="find-btn">
-                        <a href="#" class="btn-second"><i class='bx bx-search-alt'></i>Izlash</a>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+<!--<div class="find-form">-->
+<!--    <div class="container">-->
+<!--        <form class="findfrom-wrapper">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-3">-->
+<!--                    <input type="text" name="whereto" placeholder="Qayerga...">-->
+<!--                </div>-->
+<!--                <div class="col-lg-3">-->
+<!--                    <div class="calendar-input">-->
+<!--                        <input type="text" name="check-in" class="input-field check-in" placeholder="kk-oo-yy">-->
+<!--                        <i class="flaticon-calendar"></i>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-3">-->
+<!--                    <div class="custom-select">-->
+<!--                        <select>-->
+<!--                            <option value="0">Sayohat Turi</option>-->
+<!--                            <option value="1">City Tours</option>-->
+<!--                            <option value="2">Vacation Tours</option>-->
+<!--                            <option value="3">Couple Tours</option>-->
+<!--                            <option value="4">Adventure Tours</option>-->
+<!--                            <option value="5">Group Tours</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-3">-->
+<!--                    <div class="find-btn">-->
+<!--                        <a href="#" class="btn-second"><i class='bx bx-search-alt'></i>Izlash</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
 <!-- ===============  Main banner area end =============== -->
 
 
 <!-- ===============  Package  area start =============== -->
-<div class="review-area mt-120">
+<div class="review-area">
     <div class="container">
         <div class="package-area pt-120">
             <div class="container">
@@ -85,9 +86,10 @@ $this->title = 'Miroqi | Uzbekistan';
                                     <div class="blog-date"><i class="flaticon-calendar"></i> <?= date("d M, Y", $post->created_at)?></div>
                                 </div>
                                 <div class="blog-details">
-                                    <a href="blog-details.html" class="blog-title"><?= $post->title ?></a>
+                                    <?= \yii\helpers\Html::a($post->title, ['post-details', 'id' => $post->id], ['class' => 'blog-title'])?>
+
                                     <div class="blog-btn">
-                                        <a href="#" class="btn-common-sm">Batafsil o'qish</a>
+                                        <?= \yii\helpers\Html::a("Batafsil ko'rish", ['post-details', 'id' => $post->id], ['class' => 'btn-common-sm'])?>
                                     </div>
                                 </div>
                             </div>
@@ -287,14 +289,7 @@ $this->title = 'Miroqi | Uzbekistan';
 <!-- =============== Destinations area end =============== -->
 
 <!-- =============== achievement area start =============== -->
-<div class="achievement-area mt-120">
-    <div style="position:relative;overflow:hidden;">
-        <a href="https://yandex.uz/maps/org/236557694293/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:22px;position:absolute;top:0px;">Санаторий Мираки</a>
-        <a href="https://yandex.uz/maps/105807/qashqadaryo-province/category/sanatorium/184106404/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Санаторий в Кашкадарьинской области</a>
-        <iframe src="https://yandex.uz/map-widget/v1/?ll=67.111664%2C39.039630&mode=search&oid=236557694293&ol=biz&z=13.26" width="100%" height="570" frameborder="0" allowfullscreen="true" style="position:relative;">
-        </iframe>
-    </div>
-</div>
+
 <!-- =============== achievement area end =============== -->
 
 <!-- ===============  Feature area start =============== -->
@@ -374,7 +369,7 @@ $this->title = 'Miroqi | Uzbekistan';
 <!-- ===============  Feature area start =============== -->
 
 <!-- ===============  Blog area start =============== -->
-<div class="blog-area pt-120">
+<!--<div class="blog-area pt-120">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -385,26 +380,26 @@ $this->title = 'Miroqi | Uzbekistan';
             </div>
         </div>
         <div class="row">
-            <?php foreach ($lots as $lot):?>
+            <?php /*foreach ($lots as $lot):*/?>
                 <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInLeft animated" data-wow-duration="1500ms"
                      data-wow-delay="0ms">
                     <div class="blog-card">
                         <div class="blog-img">
-                            <img src="<?= $lot->image != null ? '/files/' . $lot->image : '/template/images/blog/b-1.png' ?>" alt="" class="img-fluid">
-                            <div class="blog-date"><i class="flaticon-calendar"></i> <?= date("d M, Y")?></div>
+                            <img src="<?php /*= $lot->image != null ? '/files/' . $lot->image : '/template/images/blog/b-1.png' */?>" alt="" class="img-fluid">
+                            <div class="blog-date"><i class="flaticon-calendar"></i> <?php /*= date("d M, Y")*/?></div>
                         </div>
                         <div class="blog-details">
-                            <a href="#" class="blog-title"><?=$lot->title?></a>
+                            <a href="#" class="blog-title"><?php /*=$lot->title*/?></a>
                             <div class="blog-btn">
-                                <a href="#" class="btn-common-sm">Batafsil ko'rish</a>
+                                <?php /*= \yii\helpers\Html::a("Batafsil ko'rish", ['lot-details', 'id' => $lot->id], ['class' => 'btn-common-sm'])*/?>
                             </div>
                         </div>
                     </div>
                 </div>
-            <?php endforeach;?>
+            <?php /*endforeach;*/?>
         </div>
     </div>
-</div>
+</div>-->
 <!-- ===============  Blog area end =============== -->
 
 
