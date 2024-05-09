@@ -131,7 +131,7 @@ $menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order
                                         <?php if (!empty($menu->subMenu)): ?>
                                             <ul class="sub-menu">
                                                 <?php foreach ($menu->subMenu as $subMenu): ?>
-                                                    <li><a href="#" class="sub-item"><?= $subMenu->title ?></a></li>
+                                                    <li><a href="<?= $menu->url ?>" class="sub-item"><?= $subMenu->title ?></a></li>
                                                 <?php endforeach; ?>
                                             </ul>
                                         <?php endif; ?>
