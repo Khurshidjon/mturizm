@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\tinymce\TinyMce;
 
 /** @var yii\web\View $this */
 /** @var common\models\Post $model */
@@ -16,7 +17,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'postImage')->fileInput(['class' => 'form-control']) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'content')->widget(TinyMce::className(), [
+        'options' => ['rows' => 6],
+        'language' => 'ru',
+    ]) ?>
 
     <div class="form-group mt-3">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

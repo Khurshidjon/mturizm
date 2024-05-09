@@ -91,6 +91,18 @@ AppAssetAdmin::register($this);
                             <div data-i18n="Boxicons">Galleriya</div>
                         </a>
                     </li>
+                    <li class="menu-item <?= $route == 'menu' ? 'active' : ''; ?>">
+                        <a href="<?= Url::toRoute(['/admin/menu']) ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-list-check"></i>
+                            <div data-i18n="Boxicons">Menular</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?= $route == 'page' ? 'active' : ''; ?>">
+                        <a href="<?= Url::toRoute(['/admin/page']) ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-bookmark"></i>
+                            <div data-i18n="Boxicons">Sahifalar</div>
+                        </a>
+                    </li>
                     <li class="menu-item <?= $route == 'social-messenger' ? 'active' : ''; ?>">
                         <a href="<?= Url::toRoute(['/admin/social-messenger']) ?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bxl-telegram"></i>

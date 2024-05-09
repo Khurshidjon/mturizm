@@ -6,10 +6,12 @@
 
 use frontend\assets\AppAsset;
 use common\models\SocialMessenger;
+use common\models\Menu;
 
 AppAsset::register($this);
 
 $socials = SocialMessenger::find()->all();
+$menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order' => SORT_ASC])->all();
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -77,17 +79,6 @@ $socials = SocialMessenger::find()->all();
                         </ul>
                     </div>
                 </div>
-
-                <!--                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-6">-->
-                <!--                    <div class="custom-select languege-select">-->
-                <!--                        <select>-->
-                <!--                            <option value="0">ENG</option>-->
-                <!--                            <option value="1">BAN</option>-->
-                <!--                            <option value="2">FSP</option>-->
-                <!--                            <option value="3">CHI</option>-->
-                <!--                        </select>-->
-                <!--                    </div>-->
-                <!--                </div>-->
             </div>
 
         </div>
@@ -112,30 +103,6 @@ $socials = SocialMessenger::find()->all();
                                 <div class="searchbar-open">
                                     <i class="flaticon-magnifier"></i>
                                 </div>
-                                <!--                                <div class="user-dropdown-icon">-->
-                                <!--                                    <i class="flaticon-user"></i>-->
-                                <!---->
-                                <!--                                    <div class="account-dropdown">-->
-                                <!--                                        <ul>-->
-                                <!--                                            <li class="account-el">-->
-                                <!--                                                <i class='bx bx-user-pin'></i>-->
-                                <!--                                                <a href="#">Sign in</a>-->
-                                <!--                                            </li>-->
-                                <!--                                            <li class="account-el">-->
-                                <!--                                                <i class='bx bxs-user-account'></i>-->
-                                <!--                                                <a href="#">My Account</a>-->
-                                <!--                                            </li>-->
-                                <!--                                            <li class="account-el">-->
-                                <!--                                                <i class='bx bx-extension'></i>-->
-                                <!--                                                <a href="#">Settings</a>-->
-                                <!--                                            </li>-->
-                                <!--                                            <li class="account-el">-->
-                                <!--                                                <i class='bx bx-log-in-circle'></i>-->
-                                <!--                                                <a href="#">Log out</a>-->
-                                <!--                                            </li>-->
-                                <!--                                        </ul>-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
                                 <div class="mobile-menu d-flex ">
                                     <div class="top-search-bar m-0 d-block d-xl-none">
                                     </div>
@@ -157,47 +124,24 @@ $socials = SocialMessenger::find()->all();
                                 <!--                                <img src="/template/images/logo-2.png" alt="" class="img-fluid">-->
                             </div>
                             <ul>
-                                <li><a href="/">Bosh sahifa</a></li>
-                                <li><a href="/site/posts">Yangiliklar</a></li>
-                                <!--                                <li><a href="/site/lots">Lotlar</a></li>-->
-                                <li class="has-child-menu">
-                                    <a href="javascript:void(0)">Galleriya</a>
-                                    <i class="fl flaticon-plus">+</i>
-                                    <ul class="sub-menu">
-                                        <li><a href="/site/photo-gallery" class="sub-item">Foto galleriya</a></li>
-                                        <li><a href="/site/video-gallery" class="sub-item">Video galleriya</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#footer">Biz bilan aloqa </a></li>
+                                <?php foreach ($menus as $menu): ?>
+                                    <li class="<?= !empty($menu->subMenu) ? 'has-child-menu' : '' ?>">
+                                        <a target="<?= $menu->is_external == 1 ?  '_blank' : '_self'?>" href="<?= !empty($menu->subMenu) ? 'javascript:void(0)' : $menu->url ?>"><?= $menu->title ?></a>
+                                        <i class="fl flaticon-plus">+</i>
+                                        <?php if (!empty($menu->subMenu)): ?>
+                                            <ul class="sub-menu">
+                                                <?php foreach ($menu->subMenu as $subMenu): ?>
+                                                    <li><a href="#" class="sub-item"><?= $subMenu->title ?></a></li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
                             </ul>
                             <div class="navbar-icons-2">
                                 <div class="searchbar-open">
                                     <i class="flaticon-magnifier"></i>
                                 </div>
-                                <!--                                <div class="user-dropdown-icon">-->
-                                <!--                                    <i class="flaticon-user"></i>-->
-                                <!--                                    <div class="account-dropdown">-->
-                                <!--                                        <ul>-->
-                                <!--                                            <li class="account-el">-->
-                                <!--                                                <i class='bx bx-user-pin'></i>-->
-                                <!--                                                <a href="#">Sign in</a>-->
-                                <!--                                            </li>-->
-                                <!--                                            <li class="account-el">-->
-                                <!--                                                <i class='bx bxs-user-account'></i>-->
-                                <!--                                                <a href="#">My Account</a>-->
-                                <!--                                            </li>-->
-                                <!--                                            <li class="account-el">-->
-                                <!--                                                <i class='bx bx-extension'></i>-->
-                                <!--                                                <a href="#">Settings</a>-->
-                                <!--                                            </li>-->
-                                <!--                                            <li class="account-el">-->
-                                <!--                                                <i class='bx bx-log-in-circle'></i>-->
-                                <!--                                                <a href="#">Log out</a>-->
-                                <!--                                            </li>-->
-                                <!--                                        </ul>-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
-                                <!--                            </div>-->
                                 <div class="sidebar-contact">
                                     <ul>
                                         <li class="sidebar-single-contact"><i class='bx bxs-phone'></i> <a

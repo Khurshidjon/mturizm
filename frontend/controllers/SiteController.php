@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\models\Banner;
 use common\models\Gallery;
 use common\models\Lot;
+use common\models\Page;
 use common\models\Post;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -82,6 +83,14 @@ class SiteController extends Controller
     public function actionContacts()
     {
         return $this->render('contacts');
+    }
+
+    public function actionPage($id)
+    {
+        $page = Page::findOne(['id' => $id, 'status' => 1]);
+        return $this->render('pages', [
+            'page' => $page
+        ]);
     }
 
     public function actionPhotoGallery()
