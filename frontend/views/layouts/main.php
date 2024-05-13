@@ -72,8 +72,8 @@ $menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order
                         <ul>
                             <?php foreach ($socials as $social): ?>
                                 <li>
-                                    <a target="_blank" href="<?= $social->link ?>"><i
-                                                class='bx bxl-<?= $social->title ?>'></i></a>
+                                    <a target="_blank" href="<?= $social->link ?>">
+                                        <i class='bx bxl-<?= $social->title ?>'></i></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
@@ -89,7 +89,7 @@ $menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order
     <!-- ===============  header area start =============== -->
     <header>
         <div class="header-area">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
 
                     <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
@@ -120,18 +120,18 @@ $menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                         <nav class="main-nav">
                             <div class="navber-logo-sm">
-                                Miraki
+                                "Shahrisabz" turizm markazi
                                 <!--                                <img src="/template/images/logo-2.png" alt="" class="img-fluid">-->
                             </div>
                             <ul>
                                 <?php foreach ($menus as $menu): ?>
                                     <li class="<?= !empty($menu->subMenu) ? 'has-child-menu' : '' ?>">
-                                        <a target="<?= $menu->is_external == 1 ?  '_blank' : '_self'?>" href="<?= !empty($menu->subMenu) ? 'javascript:void(0)' : $menu->url ?>"><?= $menu->title ?></a>
+                                        <a style="text-transform: uppercase" target="<?= $menu->is_external == 1 ?  '_blank' : '_self'?>" href="<?= !empty($menu->subMenu) ? 'javascript:void(0)' : $menu->url ?>"><?= $menu->title ?></a>
                                         <i class="fl flaticon-plus">+</i>
                                         <?php if (!empty($menu->subMenu)): ?>
                                             <ul class="sub-menu">
                                                 <?php foreach ($menu->subMenu as $subMenu): ?>
-                                                    <li><a href="<?= $menu->url ?>" class="sub-item"><?= $subMenu->title ?></a></li>
+                                                    <li><a style="text-transform: uppercase" href="<?= $menu->url ?>" class="sub-item"><?= $subMenu->title ?></a></li>
                                                 <?php endforeach; ?>
                                             </ul>
                                         <?php endif; ?>
@@ -147,7 +147,7 @@ $menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order
                                         <li class="sidebar-single-contact"><i class='bx bxs-phone'></i> <a
                                                     href="tel:+998990005795">+998 (99)-000-5795</a></li>
                                         <li class="sidebar-single-contact"><i class='bx bxs-envelope'></i><a
-                                                    href="mailto:info@mturizm.uz">info@mturizm.uz</a></li>
+                                                    href="mailto:info@mturizm.uz">info@shahrisabz.uz</a></li>
                                     </ul>
                                 </div>
                         </nav>
