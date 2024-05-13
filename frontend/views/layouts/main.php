@@ -120,7 +120,7 @@ $menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                         <nav class="main-nav">
                             <div class="navber-logo-sm">
-                                "Shahrisabz" turizm markazi
+                                "Shahrisabz" turistik markazi
                                 <!--                                <img src="/template/images/logo-2.png" alt="" class="img-fluid">-->
                             </div>
                             <ul>
@@ -212,7 +212,7 @@ $menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyrigth-area">
-                        <p>Copyright <?= date("Y"); ?> <a href="#">MTurizm</a></p>
+                        <p>Copyright <?= date("Y"); ?> <a href="#">“Shahrisabz” turistik markazi</a></p>
                     </div>
                 </div>
             </div>
