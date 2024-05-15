@@ -40,7 +40,7 @@ class MenuSearch extends Menu
      */
     public function search($params)
     {
-        $query = Menu::find();
+        $query = Menu::find()->where(['parent_id' => 0])->orderBy(['order' => SORT_ASC]);
 
         // add conditions that should always apply here
 

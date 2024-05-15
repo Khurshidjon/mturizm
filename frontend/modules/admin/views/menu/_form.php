@@ -32,10 +32,12 @@ use common\models\Menu;
 
    <div class="row">
        <div class="col-md-6">
-           <?= $form->field($model, 'order')->textInput(['maxlength' => true]); ?>
+           <?= $form->field($model, 'url')->textInput(['maxlength' => true, 'placeholder' => '/page/1']); ?>
        </div>
        <div class="col-md-6">
-           <?= $form->field($model, 'url')->textInput(['maxlength' => true, 'placeholder' => '/page/1']); ?>
+           <div class="my-4 form-check form-switch">
+               <?= $form->field($model, 'status')->checkbox(['class' => 'form-check-input']) ?>
+           </div>
        </div>
    </div>
 

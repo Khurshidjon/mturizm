@@ -70,7 +70,9 @@ class MenuController extends Controller
         $model = new Menu();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $model->order = 1;
+                $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -130,5 +132,21 @@ class MenuController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionOrderChange()
+    {
+        $id = $this->request->post('id');
+        $type = $this->request->post('type');
+        $model = $this->findModel($id);
+        if ($this->request->isPost) {
+            if ($type == 'down') {
+                $model->order = $model->order == null ? 1 : $model->order + 1;
+            } elseif ($type == 'up') {
+                $model->order = $model->order == null ? 0 - $model->order : $model->order - 1;
+            }
+            $model->save(false);
+        }
+        return json_encode($model);
     }
 }
