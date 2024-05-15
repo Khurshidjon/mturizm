@@ -110,7 +110,22 @@ class BannerController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+            $base_directory = __DIR__ . '../../../../../frontend/web/files';
+            $new_directory = $base_directory . '/' . 'banner';
+            $inside_directory = '/banner';
+
+            if ($model->image != null) {
+                $filename = substr(sha1($model->image->baseName), 0, 20) . date("d-m-Y-H-i") . '.' . $model->image->extension;
+                $file_dir = $new_directory . '/' . $filename;
+                $original_filename = $model->image->name;
+                $model->image->saveAs($file_dir);
+                $model->path = $inside_directory;
+                $model->original_name = $original_filename;
+                $model->filename = $filename;
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
