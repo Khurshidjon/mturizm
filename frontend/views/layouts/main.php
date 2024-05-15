@@ -96,7 +96,7 @@ $menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order
                         <div class="navbar-wrap">
                             <div class="logo d-flex justify-content-between">
                                 <a href="/" class="navbar-brand">
-                                    <img width="100%" src="/template/images/logo/logo.png" alt="">
+                                    <img width="100%" src="/template/images/logo/logo2.png" alt="">
                                 </a>
                             </div>
                             <div class="navbar-icons">
@@ -179,7 +179,7 @@ $menus = Menu::find()->where(['status' => 1, 'parent_id' => 0])->orderBy(['order
                 <div class="col-md-6">
                     <div class="footer-info">
                         <div class="footer-logo">
-                            <img src="/template/images/logo/logo-transparent.png" width="50%" alt="" class="img-fluid">
+                            <img src="/template/images/logo/logo-transparent2.png" width="50%" alt="" class="img-fluid">
                         </div>
                         <p></p>
                         <div class="footer-social-icons">
