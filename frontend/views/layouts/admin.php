@@ -70,7 +70,7 @@ AppAssetAdmin::register($this);
                     <li class="menu-item <?= $route == 'post' ? 'active' : ''; ?>">
                         <a href="<?= Url::toRoute(['/admin/post']) ?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-list-ul"></i>
-                            <div data-i18n="Boxicons">Yangiliklar</div>
+                            <div data-i18n="Boxicons">Postlar</div>
                         </a>
                     </li>
                     <li class="menu-item <?= $route == 'lot' ? 'active' : ''; ?>">
