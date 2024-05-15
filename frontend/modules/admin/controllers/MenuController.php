@@ -141,9 +141,9 @@ class MenuController extends Controller
         $model = $this->findModel($id);
         if ($this->request->isPost) {
             if ($type == 'down') {
-                $model->order = $model->order == null ? 1 : $model->order + 1;
+                $model->order = $model->order + 1;
             } elseif ($type == 'up') {
-                $model->order = $model->order == null ? 0 - $model->order : $model->order - 1;
+                $model->order = $model->order - 1;
             }
             $model->save(false);
         }
