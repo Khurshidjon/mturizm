@@ -17,8 +17,9 @@ class m240509_134257_create_pages_table extends Migration
             'title' => $this->string(),
             'content' => $this->text(),
             'image' => $this->string(),
+            'is_list' => $this->integer()->defaultValue(1),
             'status' => $this->tinyInteger()->defaultValue(1),
-            'crated_at' => $this->integer(),
+            'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
         ]);
     }

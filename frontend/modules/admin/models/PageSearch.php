@@ -17,7 +17,7 @@ class PageSearch extends Page
     public function rules()
     {
         return [
-            [['id', 'status', 'crated_at', 'updated_at'], 'integer'],
+            [['id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'content', 'image'], 'safe'],
         ];
     }
@@ -60,7 +60,7 @@ class PageSearch extends Page
         $query->andFilterWhere([
             'id' => $this->id,
             'status' => $this->status,
-            'crated_at' => $this->crated_at,
+            'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
 

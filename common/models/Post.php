@@ -33,9 +33,10 @@ class Post extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['title', 'page_id'], 'required'],
+            [['is_news', 'page_id', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
             [['content'], 'string'],
-            [['user_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['postImage'], 'file', 'skipOnEmpty' => true, 'maxSize' => 10485760],
         ];
     }
@@ -59,6 +60,8 @@ class Post extends \yii\db\ActiveRecord
             'image' => 'Image',
             'content' => 'Content',
             'user_id' => 'User ID',
+            'is_news' => 'Yangiliklar lentasida chiqsinimi?',
+            'page_id' => 'Qaysi sahifada chiqsin?',
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',

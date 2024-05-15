@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use common\models\Page;
 use common\models\Post;
 use app\modules\admin\models\PostSearch;
 use yii\web\Controller;
@@ -69,17 +70,13 @@ class PostController extends Controller
     public function actionCreate()
     {
         $model = new Post();
-
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
                 $model->postImage = UploadedFile::getInstance($model, 'postImage');
                 $base_directory = __DIR__ . '../../../../../frontend/web/files';
                 $new_directory = $base_directory . '/' . 'posts';
                 $inside_directory = '/posts';
-                if ($model->postImagel != null) {
-//                    if (!file_exists($new_directory)) {
-//                        mkdir($new_directory, 0777, true);
-//                    }
+                if ($model->postImage != null) {
                     $filename = substr(sha1($model->postImage->baseName), 0, 20) . date("d-m-Y-H-i") . '.' . $model->postImage->extension;
                     $file_dir = $new_directory . '/' . $filename;
                     $model->postImage->saveAs($file_dir);
@@ -108,8 +105,21 @@ class PostController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            if ($model->load($this->request->post())) {
+                $model->postImage = UploadedFile::getInstance($model, 'postImage');
+                $base_directory = __DIR__ . '../../../../../frontend/web/files';
+                $new_directory = $base_directory . '/' . 'posts';
+                $inside_directory = '/posts';
+                if ($model->postImage != null) {
+                    $filename = substr(sha1($model->postImage->baseName), 0, 20) . date("d-m-Y-H-i") . '.' . $model->postImage->extension;
+                    $file_dir = $new_directory . '/' . $filename;
+                    $model->postImage->saveAs($file_dir);
+                    $model->image = $inside_directory . '/' . $filename;
+                }
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [

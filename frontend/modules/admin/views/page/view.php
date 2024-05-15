@@ -33,10 +33,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'content:ntext',
-            'image',
+            'is_list',
             'status',
-            'crated_at',
-            'updated_at',
+            [
+                'attribute' => 'created_at',
+                'value' => function ($model) {
+                    return date("H:i:o d-m-Y", $model->created_at);
+                }
+            ],
+            [
+                'attribute' => 'updated_at',
+                'value' => function ($model) {
+                    return date("H:i:o d-m-Y", $model->updated_at);
+                }
+            ]
         ],
     ]) ?>
 

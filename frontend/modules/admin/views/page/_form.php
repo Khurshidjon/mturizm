@@ -21,11 +21,11 @@ use dosamigos\tinymce\TinyMce;
     ]) ?>
 
 
-    <div class="my-4">
-        <?= $form->field($model, 'cover_image')->fileInput(['class' => 'form-control']) ?>
+    <div class="my-4 form-check form-switch">
+        <?= $form->field($model, 'is_list')->checkbox(['class' => 'form-check-input']) ?>
     </div>
     <div class="form-group mt-3">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Yuborish', ['class' => 'btn btn-success']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 
@@ -42,7 +42,8 @@ use dosamigos\tinymce\TinyMce;
                 </button>
             </div>
             <div class="modal-body">
-                <iframe src="/plugins/responsivefilemanager/filemanager/dialog.php?type=1&field_id=img-input" width="100%" height="800px">
+                <iframe src="/plugins/responsivefilemanager/filemanager/dialog.php?type=1&field_id=img-input"
+                        width="100%" height="800px">
 
                 </iframe>
             </div>
