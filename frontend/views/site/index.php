@@ -85,7 +85,7 @@ function truncate($string, $length, $dots = "...") {
                         <div class="col-lg-4 col-md-6 col-sm-6  wow fadeInLeft animated" data-wow-duration="1500ms"
                              data-wow-delay="<?= $key + 300 ?>ms">
                             <div class="blog-card">
-                                <div class="blog-img" style="height: 200px">
+                                <div class="blog-img" style="max-height: 200px">
                                     <?php if ($post->image != null): ?>
                                         <img src="/files/<?= $post->image ?>" alt="" class="img-fluid">
                                     <?php else: ?>
