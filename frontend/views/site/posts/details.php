@@ -1,6 +1,11 @@
 <?php
 /** @var $post \common\models\Post */
 ?>
+<style>
+    ul {
+        margin-left: 100px;
+    }
+</style>
 <div class="container">
     <div class="pt-120 pb-30">
         <h1 class="fw-bold">
