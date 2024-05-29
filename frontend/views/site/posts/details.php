@@ -2,7 +2,7 @@
 /** @var $post \common\models\Post */
 ?>
 <div class="container">
-    <div class="pt-120 pb-60">
+    <div class="pt-120 pb-30">
         <h1 class="fw-bold">
             <?= $post ? $post->title : null ?>
         </h1>
