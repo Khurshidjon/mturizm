@@ -29,14 +29,37 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+//            'id',
             'title',
-            'image:ntext',
-            'content:ntext',
-            'user_id',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::img('/files'.$model->image, [
+                        'style' => 'width: 200px'
+                    ]);
+                }
+            ],
+            [
+                'attribute' => 'content',
+                'value' => function ($model) {
+                    return $model->content;
+                }
+            ],
+//            'user_id',
             'status',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'created_at',
+                'value' => function ($model) {
+                    return date("d-m-Y H:i:s", $model->created_at);
+                }
+            ],
+            [
+                'attribute' => 'updated_at',
+                'value' => function ($model) {
+                    return date("d-m-Y H:i:s", $model->updated_at);
+                }
+            ]
         ],
     ]) ?>
 

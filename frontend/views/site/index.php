@@ -5,7 +5,11 @@
 /** @var \common\models\Post $posts */
 /** @var \common\models\Lot $lots */
 
-$this->title = 'Miroqi | Uzbekistan';
+$this->title = 'Shakhrisabz | Uzbekistan';
+
+function truncate($string, $length, $dots = "...") {
+    return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots)) . $dots : $string;
+}
 ?>
 
 <!-- ===============  Main banner area start =============== -->
@@ -71,25 +75,31 @@ $this->title = 'Miroqi | Uzbekistan';
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="section-head pb-45">
-                            <h5>Turizm haqida yangiliklar</h5>
-                            <h2>Shahrisabz turizm markazi haqidagi so'nggi yangiliklar</h2>
+                            <!--                            <h5>Turizm haqida yangiliklar</h5>-->
+                            <!--                            <h2>Shahrisabz turizm markazi haqidagi so'nggi yangiliklar</h2>-->
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <?php foreach ($posts as $key => $post): ?>
-                        <div class="col-lg-4 col-md-6 col-sm-6  wow fadeInLeft animated" data-wow-duration="1500ms"  data-wow-delay="<?=$key+300?>ms">
+                        <div class="col-lg-4 col-md-6 col-sm-6  wow fadeInLeft animated" data-wow-duration="1500ms"
+                             data-wow-delay="<?= $key + 300 ?>ms">
                             <div class="blog-card">
                                 <div class="blog-img">
-                                    <img src="<?= $post->image != null ? '/files/' . $post->image : '/template/images/blog/b-1.png' ?>"
-                                         alt="" class="img-fluid">
-                                    <div class="blog-date"><i class="flaticon-calendar"></i> <?= date("d M, Y", $post->created_at)?></div>
+                                    <?php if ($post->image == null): ?>
+                                        <img src="/files/<?= $post->image ?>" alt="" class="img-fluid">
+                                    <?php else: ?>
+                                        <div style="padding: 20px 0"></div>
+                                    <?php endif; ?>
+                                    <div class="blog-date"><i class="flaticon-calendar"></i> <?= date("d M, Y", $post->created_at) ?></div>
                                 </div>
                                 <div class="blog-details">
-                                    <?= \yii\helpers\Html::a($post->title, ['post-details', 'id' => $post->id], ['class' => 'blog-title'])?>
-
+                                    <div><?= \yii\helpers\Html::a($post->title, ['post-details', 'id' => $post->id], ['class' => 'blog-title']) ?></div>
+                                    <div>
+                                        <?= truncate($post->content, 100) ?>
+                                    </div>
                                     <div class="blog-btn">
-                                        <?= \yii\helpers\Html::a("Batafsil ko'rish", ['post-details', 'id' => $post->id], ['class' => 'btn-common-sm'])?>
+                                        <?= \yii\helpers\Html::a("Batafsil ko'rish", ['post-details', 'id' => $post->id], ['class' => 'btn-common-sm']) ?>
                                     </div>
                                 </div>
                             </div>
@@ -380,23 +390,23 @@ $this->title = 'Miroqi | Uzbekistan';
             </div>
         </div>
         <div class="row">
-            <?php /*foreach ($lots as $lot):*/?>
+            <?php /*foreach ($lots as $lot):*/ ?>
                 <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInLeft animated" data-wow-duration="1500ms"
                      data-wow-delay="0ms">
                     <div class="blog-card">
                         <div class="blog-img">
-                            <img src="<?php /*= $lot->image != null ? '/files/' . $lot->image : '/template/images/blog/b-1.png' */?>" alt="" class="img-fluid">
-                            <div class="blog-date"><i class="flaticon-calendar"></i> <?php /*= date("d M, Y")*/?></div>
+                            <img src="<?php /*= $lot->image != null ? '/files/' . $lot->image : '/template/images/blog/b-1.png' */ ?>" alt="" class="img-fluid">
+                            <div class="blog-date"><i class="flaticon-calendar"></i> <?php /*= date("d M, Y")*/ ?></div>
                         </div>
                         <div class="blog-details">
-                            <a href="#" class="blog-title"><?php /*=$lot->title*/?></a>
+                            <a href="#" class="blog-title"><?php /*=$lot->title*/ ?></a>
                             <div class="blog-btn">
-                                <?php /*= \yii\helpers\Html::a("Batafsil ko'rish", ['lot-details', 'id' => $lot->id], ['class' => 'btn-common-sm'])*/?>
+                                <?php /*= \yii\helpers\Html::a("Batafsil ko'rish", ['lot-details', 'id' => $lot->id], ['class' => 'btn-common-sm'])*/ ?>
                             </div>
                         </div>
                     </div>
                 </div>
-            <?php /*endforeach;*/?>
+            <?php /*endforeach;*/ ?>
         </div>
     </div>
 </div>-->

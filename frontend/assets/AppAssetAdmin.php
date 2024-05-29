@@ -31,6 +31,7 @@ class AppAssetAdmin extends AssetBundle
         'src_vendor/libs/apex-charts/apexcharts.js',
         'js/main.js',
         'js/dashboards-analytics.js',
+        'ckeditor/ckeditor_new.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
