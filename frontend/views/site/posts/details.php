@@ -3,7 +3,7 @@
 ?>
 <style>
     ul {
-        margin-left: 100px;
+        margin-left: 80px;
     }
 </style>
 <div class="container">
