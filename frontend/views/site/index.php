@@ -86,8 +86,8 @@ function truncate($string, $length, $dots = "...") {
                              data-wow-delay="<?= $key + 300 ?>ms">
                             <div class="blog-card">
                                 <div class="blog-img">
-                                    <?php if ($post->image == null): ?>
-                                        <img src="/files/<?= $post->image ?>" alt="" class="img-fluid">
+                                    <?php if ($post->image != null): ?>
+                                        <img src="/files/<?= $post->image ?>" alt="" class="img-fluid" style="max-height: 180px">
                                     <?php else: ?>
                                         <div style="padding: 20px 0"></div>
                                     <?php endif; ?>
@@ -98,7 +98,7 @@ function truncate($string, $length, $dots = "...") {
                                     <div>
                                         <?= truncate($post->content, 100) ?>
                                     </div>
-                                    <div class="blog-btn mb-2">
+                                    <div class="blog-btn py-3">
                                         <?= \yii\helpers\Html::a("Batafsil ko'rish", ['post-details', 'id' => $post->id], ['class' => 'btn-common-sm']) ?>
                                     </div>
                                 </div>
