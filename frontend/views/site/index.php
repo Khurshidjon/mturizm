@@ -87,7 +87,7 @@ function truncate($string, $length, $dots = "...") {
                             <div class="blog-card">
                                 <div class="blog-img">
                                     <?php if ($post->image != null): ?>
-                                        <img src="/files/<?= $post->image ?>" alt="" class="img-fluid" style="max-height: 180px">
+                                        <img src="/files/<?= $post->image ?>" alt="" class="img-fluid" style="max-height: 18cc0px">
                                     <?php else: ?>
                                         <div style="padding: 20px 0"></div>
                                     <?php endif; ?>
