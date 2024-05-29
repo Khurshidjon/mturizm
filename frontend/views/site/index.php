@@ -98,7 +98,7 @@ function truncate($string, $length, $dots = "...") {
                                     <div>
                                         <?= truncate($post->content, 100) ?>
                                     </div>
-                                    <div class="blog-btn">
+                                    <div class="blog-btn mb-2">
                                         <?= \yii\helpers\Html::a("Batafsil ko'rish", ['post-details', 'id' => $post->id], ['class' => 'btn-common-sm']) ?>
                                     </div>
                                 </div>
