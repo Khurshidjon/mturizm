@@ -25,7 +25,7 @@ use yii\helpers\Html;
                 <?php if ($page->is_list != 1): ?>
                     <?= $page->content ?>
                 <?php else: ?>
-                    <?php foreach ($posts as $key => $post): ?>
+                    <?php foreach ($page->posts as $key => $post): ?>
                         <div class="col-lg-4 col-md-6 col-sm-6  wow fadeInLeft animated" data-wow-duration="1500ms"
                              data-wow-delay="<?= $key + 300 ?>ms">
                             <div class="blog-card">
