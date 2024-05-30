@@ -9,8 +9,9 @@ use common\models\Page;
 
 /** @var Page $page */
 
-use yii\helpers\Html;
-
+function truncate($string, $length, $dots = "...") {
+    return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots)) . $dots : $string;
+}
 ?>
 <div class="container-fluid">
 
